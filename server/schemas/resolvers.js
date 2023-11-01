@@ -1,5 +1,8 @@
-const { User } = require('../models/User');
+const User = require('../models/User');
+const bcrypt = require('bcrypt'); 
 
 const resolvers = {
-    Query
-}
+    Query: {}}
+        
+
+module.exports = resolvers;
