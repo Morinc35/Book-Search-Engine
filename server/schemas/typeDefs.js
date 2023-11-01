@@ -9,7 +9,7 @@ const typeDefs = `
         link: String
     }
     type User {
-        _id; ID
+        _id: ID
         username: String
         email: String
         password: String
@@ -18,16 +18,16 @@ const typeDefs = `
 
     }
     type Auth {
-        token: ID!
-        profile: Profile
+        token: String!
+        user: User
     }
     type Query {
         user: User
         users: [User]
     }
     type Mutation {
-        addUser($username: String!, $email: String!, $password: String!): Auth
-        loginUser($email: String!, $password: String!): Auth
+        addUser(username: String!, email: String!, password: String!): Auth
+        loginUser(email: String!, password: String!): Auth
         saveBook(
             bookID: String!
             title: String
@@ -37,7 +37,7 @@ const typeDefs = `
             link: String
 
         ): User
-        removeBook(bookId: String): User
+        removeBook(bookId: ID!): User
     }
 `
 
