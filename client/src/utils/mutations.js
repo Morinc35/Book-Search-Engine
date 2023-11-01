@@ -22,3 +22,51 @@ mutatation loginUser($email: String!, $password: String!){
     }
 }
 `;
+export const ADD_BOOK = gql`
+mutation saveBook(
+    $bookId: String
+    $authors: [String]
+    $title: String
+    $description: String
+    $image: String
+    $link: String
+){
+    saveBook(
+        bookId: $bookId
+        authors: $authors
+        title: $title
+        description: $decsription
+        image: $image
+        link: $link
+        
+    ){
+        _id
+        username
+        savedBooks{
+            bookId
+            authors
+            title 
+            description
+            image
+            link
+        }
+
+    }
+}
+`;
+
+export const REMOVE_BOOK = gql`
+    mutation removeBook($bookId: String!) {
+        removeBoook(bookId: $bookId) {
+            username
+            savedBooks{
+                bookId
+                authors
+                title 
+                decsription
+                image
+                link
+            }
+        }
+    }
+`;
